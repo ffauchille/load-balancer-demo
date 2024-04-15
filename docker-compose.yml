@@ -1,8 +1,8 @@
-version: '3'
+version: "3"
 
 services:
   load-balancer:
-    image: nginx:1.23.1
+    image: nginx:1.25.4-alpine
     container_name: load-balancer
     depends_on:
       - web-server-1
@@ -18,7 +18,7 @@ services:
       - 8089:80
 
   web-server-1:
-    image: nginx:1.21.3
+    image: nginx:1.25.4-alpine
     container_name: web-server-1
     networks:
       - load-balancer-demo-net
@@ -39,5 +39,3 @@ services:
 
 networks:
   load-balancer-demo-net:
-    external: true
-    name: load-balancer-demo-net
